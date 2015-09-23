@@ -6,24 +6,11 @@
 </head>
 <body>
   <a href="https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token"><button>Login to Instagram Here</button></a>
+  client.open<https://api.instagram.com/v1/media/{media-id}?access_token=ACCESS-TOKEN>
+<div id="main-ground-container" style="width:400px; height:400px; margin: 0 auto;"></div>
 
-<div id="main-ground-container" style="width:400px; height:400px; margin: 0 auto;">
-</div>
+<script src="instagram.js"></script>
+
+
 </body>
 </html>
-<script src="response.json"></script>
-<script>
-
-//generate random integer from 0 to 19
-var randomImageNum = Math.floor(Math.random()*20);
-
-// view sample response json
-console.log(sampleResponse);
-
-// define var for random image url
-var randomImageUrl = sampleResponse.data[randomImageNum].images.standard_resolution.url;
-
-
-document.getElementById('main-ground-container').innerHTML='<div style="width:100%;height:100%;background-image:url('+randomImageUrl+'); background-size:cover; background-position:center;"></div>'
-
-</script>
