@@ -10,12 +10,14 @@ This will primarily be a mobile app, which will also look good and function on l
 
 ##Strategy
 
-[ ] Learn to use the instagram api to return an image from a hashtag based on a static word.
+- [ ] Learn to use the instagram api to return an image from a hashtag based on a static word.
 
-[ ] Implement a search box with a submit button which loads a new image based on the search term.
+- [ ] Conceal API key.
 
-[ ] Add tab functionality, and a basic second tab.
+- [ ] Implement a search box with a submit button which loads a new image based on the search term.
 
-[ ] Use cookies stores user's search history on second tab.
+- [ ] Use cookies stores user's search history on second tab.
 
-[ ] Dynamic functionality to search bar.
+- [ ] Dynamic functionality to search bar.
+
+- [ ] Lazy load content.
