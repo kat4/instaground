@@ -2,7 +2,7 @@
 
 ##Concept
 
-To create a web-based app, with a dynamic page background which updates by using search criteria and the instagram api.
+To create a web-based app, with a dynamic page background which updates by using search criteria and the instagram API.
 
 We will look to use have a second tab, which shows the user the images from their previous searches in that session.
 
@@ -10,7 +10,7 @@ This will primarily be a mobile app, which will also look good and function on l
 
 ##Strategy
 
-- [ ] Learn to use the instagram api to return an image from a hashtag based on a static word.
+- [ ] Learn to use the instagram API to return an image from a hashtag based on a static word.
 
 - [ ] Conceal API key.
 
