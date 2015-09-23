@@ -11,9 +11,27 @@
 <div id="main-ground-container" style="width:400px; height:400px; margin: 0 auto;"></div>
 
 <script src="instagram.js"></script>
+
 <script>
   var newAccessKey = window.location.hash.slice(1);
-  console.log(newAccessKey)
+
+
+    function httpGetAsync(theUrl, callback) {
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    xmlHttp.send(null);
+}
+
+  httpGetAsync(newURL, function() {console.log("Succes")})
+
+var newURL = "https://api.instagram.com/v1/media/popular?access_token=" + newAccessKey;
+console.log(newURL)
+
+
 </script>
 
 
