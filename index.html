@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
 </head>
+
 <body>
-  <a href="https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token"><button>Login to Instagram Here</button></a>
+  <a href="https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token">
+    <button>Login to Instagram Here</button>
+  </a>
   <!--client.open<a href=https://api.instagram.com/v1/media/{media-id}?access_token=ACCESS-TOKEN></a> -->
 
-<div id="main-ground-container" style="width:400px; height:400px; margin: 0 auto;"></div>
+  <div id="main-ground-container" style="width:400px; height:400px; margin: 0 auto;"></div>
 
-<script src="instagram.js"></script>
+  <script src="instagram.js"></script>
 
-<script>
-  var newAccessKey = window.location.hash.slice(1);
-//
-// var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
-//     function httpGetAsync(theUrl, callback) {
-//     var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.onreadystatechange = function() {
-//         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-//             callback(xmlHttp.responseText);
-//     }
-//     xmlHttp.open("GET", theUrl, true); // true for asynchronous
-//     xmlHttp.send(null);
-// }
-//
-//   httpGetAsync(newURL, function() {console.log("Succes")})
+  <script>
+    var newAccessKey = window.location.hash.slice(1);
+    //
+    // var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
+    //     function httpGetAsync(theUrl, callback) {
+    //     var xmlHttp = new XMLHttpRequest();
+    //     xmlHttp.onreadystatechange = function() {
+    //         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+    //             callback(xmlHttp.responseText);
+    //     }
+    //     xmlHttp.open("GET", theUrl, true); // true for asynchronous
+    //     xmlHttp.send(null);
+    // }
+    //
+    //   httpGetAsync(newURL, function() {console.log("Succes")})
 
-  function jsonp(callback) {
+    function jsonp(callback) {
       //var searchterm = document.getElementById('searchTermInput').value.toString() || document.getElementById('searchTermInput').placeholder;
       var url = 'https://api.instagram.com/v1/tags/' + 'autumn' + '/media/recent?' + newAccessKey;
       var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
@@ -44,17 +48,15 @@
       document.body.appendChild(script);
     }
 
-// function displayRandomImage(response){
-//   var randomImageNum = Math.floor(Math.random()*20);
-//   var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
-//   document.getElementById('main-ground-container').innerHTML='<div style="width:100%;height:100%;background-image:url('+randomImageUrl+'); background-size:cover; background-position:center;"></div>';
-// }
-jsonp(function(){'success'});
-
-
-
-</script>
+    function displayRandomImage(response) {
+      var randomImageNum = Math.floor(Math.random() * 20);
+      var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
+      document.getElementById('main-ground-container').innerHTML = '<div style="width:100%;height:100%;background-image:url(' + randomImageUrl + '); background-size:cover; background-position:center;"></div>';
+    }
+    jsonp(displayRandomImage);
+  </script>
 
 
 </body>
+
 </html>
