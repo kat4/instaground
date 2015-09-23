@@ -1,5 +1,5 @@
 
-var test_images = JSON.parse(response.json);
+var test_images = JSON.parse("response.json");
 var randomImageNum = Math.floor(Math.random()*20);
 var randomImageUrl = test_images.data[randomImageNum].images.standard_resolution.url;
 
