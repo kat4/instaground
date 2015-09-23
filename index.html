@@ -15,7 +15,7 @@
 <script>
   var newAccessKey = window.location.hash.slice(1);
 
-var newURL = "https://api.instagram.com/v1/media/popular?access_token=" + newAccessKey;
+var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
     function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
