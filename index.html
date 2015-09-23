@@ -14,7 +14,7 @@
 
 <script>
   var newAccessKey = window.location.hash.slice(1);
-// 
+//
 // var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
 //     function httpGetAsync(theUrl, callback) {
 //     var xmlHttp = new XMLHttpRequest();
@@ -42,6 +42,8 @@
       script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
       document.body.appendChild(script);
     }
+
+jsonp(function(){console.log('Success')})
 
 
 
