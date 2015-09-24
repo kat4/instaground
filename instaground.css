@@ -20,7 +20,7 @@ body {
   background-position: center;
 }
 
-#search-field {
+.tab  {
 
   background: rgba(50, 50, 50, 0.4);
   padding: 8px 15px;
