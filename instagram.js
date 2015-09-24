@@ -1,4 +1,3 @@
-
 // instaground encapsulation app
 
 var instaground = (function() {
@@ -6,32 +5,37 @@ var instaground = (function() {
 
 
   // function which changes URL of background image to URL passed as argument to the function
-  function changeBackgroundTo(anImage){
-    return function(){
+  function changeBackgroundTo(anImage) {
+    return function() {
       document.getElementById('background-container').style.backgroundImage = 'url("' + anImage.src + '")';
     };
+  }
+
+  function updateHistory() {
+    for (var i = 0; i < clientHistory.length; i++) {
+      var imageUrl = clientHistory[i];
+      oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
+      newHtml = oldImage + newHtml;
+    }
+    document.getElementById('history-content').innerHTML = newHtml;
+    var historyImages = document.getElementsByClassName('history-image');
+    for (var j = 0; j < historyImages.length; j++) {
+      var thisImg = historyImages[j].firstChild;
+      thisImg.addEventListener('click', changeBackgroundTo(thisImg));
+    }
   }
 
   // defining a client history string
   var clientHistoryString = "[]";
 
   // if a cookie exists and takes the right form, then populate the history section
-  if (document.cookie.substr(0,2)==='["') {
+  if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
-    var oldImage="";
-    var newHtml="";
-    for(var i = 0; i<clientHistory.length; i++){
-      var imageUrl = clientHistory[i];
-      oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
-      newHtml = oldImage + newHtml;
-    }
-    document.getElementById('history-content').innerHTML = newHtml;
-    var historyImages = document.getElementsByClassName('history-image');
-    for(var j=0; j<historyImages.length; j++){
-      var thisImg = historyImages[j].firstChild;
-      thisImg.addEventListener('click', changeBackgroundTo(thisImg));
-      }
+    var oldImage = "";
+    var newHtml = "";
+    updateHistory();
+
   }
 
 
@@ -68,17 +72,7 @@ var instaground = (function() {
     clientHistory.push(randomImageUrl);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
-    for(var i = 0; i<clientHistory.length; i++){
-      var imageUrl = clientHistory[i];
-      oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
-      newHtml = oldImage + newHtml;
-    }
-    document.getElementById('history-content').innerHTML = newHtml;
-    var historyImages = document.getElementsByClassName('history-image');
-    for(var j=0; j<historyImages.length; j++){
-      var thisImg = historyImages[j].firstChild;
-      thisImg.addEventListener('click', changeBackgroundTo(thisImg));
-    }
+    updateHistory();
   }
 
   return {
