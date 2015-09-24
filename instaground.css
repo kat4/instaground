@@ -1,5 +1,24 @@
+body {
+  background-color: black;
+}
+
+.background-container {
+  width: 640px;
+  margin: 0 auto;
+}
+
 #main-ground-container {
   width: 640px;
   height: 640px;
   margin: 0 auto;
+}
+
+#search-field {
+
+  background: rgba(50, 50, 50, 0.2);
+  padding: 8px 15px;
+  border: 0;
+  color: white;
+
+
 }
