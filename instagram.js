@@ -16,13 +16,14 @@ var newAccessKey = window.location.hash.slice(1);
 
 function jsonp(callback) {
   var searchTag = document.getElementById('search-field').value;
+
   var url = 'https://api.instagram.com/v1/tags/' + searchTag + '/media/recent?' + newAccessKey;
   var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
   window[callbackName] = function(data) {
     delete window[callbackName];
     document.body.removeChild(script);
     callback(data);
-    console.log(data)
+    console.log(data);
   };
 
   var script = document.createElement('script');
@@ -35,4 +36,6 @@ function displayRandomImage(response) {
   var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
   document.getElementById('main-ground-container').innerHTML = '<div style="width:640px;height:640px;background-image:url(' + randomImageUrl + '); background-size:cover; background-position:center;"></div>';
 }
-jsonp(displayRandomImage);
+
+var  searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', jsonp(displayRandomImage) );
