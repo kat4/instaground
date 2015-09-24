@@ -14,10 +14,10 @@ This will primarily be a mobile app, which will also look good and function on l
 
 - [x] Conceal API key.
 
-- [ ] Implement a search box with a submit button which loads a new image based on the search term.
+- [x] Implement a search box with a submit button which loads a new image based on the search term.
 
 - [ ] Use cookies stores user's search history on second tab.
 
-- [ ] Dynamic functionality to search bar.
+- [x] Dynamic functionality to search bar.
 
 - [ ] Lazy load content.
