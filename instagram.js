@@ -13,6 +13,7 @@ var newAccessKey = window.location.hash.slice(1);
 //
 //   httpGetAsync(newURL, function() {console.log("Succes")})
 
+<<<<<<< HEAD
 function jsonp(callback) {
   //var searchterm = document.getElementById('searchTermInput').value.toString() || document.getElementById('searchTermInput').placeholder;
   var url = 'https://api.instagram.com/v1/tags/' + 'autumn' + '/media/recent?' + newAccessKey;
@@ -33,3 +34,4 @@ function jsonp(callback) {
 jsonp(function() {
   console.log('Success')
 })
+=======
