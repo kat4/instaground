@@ -37,5 +37,5 @@ function displayRandomImage(response) {
   document.getElementById('main-ground-container').innerHTML = '<div style="width:640px;height:640px;background-image:url(' + randomImageUrl + '); background-size:cover; background-position:center;"></div>';
 }
 
-var  searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', jsonp(displayRandomImage) );
+var searchButton = document.getElementById('search-button');
+searchButton.addEventListener('click', function() { jsonp(displayRandomImage);});
