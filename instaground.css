@@ -1,21 +1,22 @@
+html {
+  height: 100%;
+}
+
 body {
+  height: 100%;
   background-color: black;
 }
 
-.background-container {
-  width: 640px;
-  margin: 0 auto;
-}
-
-#main-ground-container {
-  width: 640px;
-  height: 640px;
-  margin: 0 auto;
+#background-container {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #search-field {
 
-  background: rgba(50, 50, 50, 0.2);
+  background: rgba(50, 50, 50, 0.4);
   padding: 8px 15px;
   border: 0;
   color: white;
