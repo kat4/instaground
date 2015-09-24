@@ -38,4 +38,15 @@ function displayRandomImage(response) {
 }
 
 var searchButton = document.getElementById('search-button');
-searchButton.addEventListener('click', function() { jsonp(displayRandomImage);});
+searchButton.addEventListener('onclick', function() { jsonp(displayRandomImage);});
+
+var searchField = document.getElementById('search-field');
+searchField.addEventListener('keydown', function(e) {
+  if(e.keyCode === 13) {
+    jsonp(displayRandomImage);
+  }
+}
+);
+// get key presses only when the textfield is being edited
+
+//searchField.addEventListener(KeyboardEvent.KEY_DOWN, handler);
