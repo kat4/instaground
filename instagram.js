@@ -40,8 +40,6 @@ function displayRandomImage(response) {
   document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
 }
 
-var searchButton = document.getElementById('search-button');
-searchButton.addEventListener('onclick', function() { jsonp(displayRandomImage);});
 
 var searchField = document.getElementById('search-field');
 searchField.addEventListener('keydown', function(e) {
