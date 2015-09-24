@@ -74,13 +74,15 @@ var instaground = (function() {
     var historyImages = document.getElementsByClassName('history-image');
     for(var j=0; j<historyImages.length; j++){
       var thisImg = historyImages[j].firstChild;
-      thisImg.addEventListener('click', function(){
-        document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
-      });
+      thisImg.addEventListener('click', changeBackgroundTo(thisImg));
 
     }
   }
-
+  function changeBackgroundTo(anImage){
+    return function(){
+      document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
+    };
+  }
   return {
     jsonp: jsonp,
     displayRandomImage: displayRandomImage
