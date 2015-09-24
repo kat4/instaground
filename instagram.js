@@ -8,7 +8,15 @@ var instaground = (function() {
   if (document.cookie && document.cookie[0]=='"[') {
     clientHistoryString = document.cookie;
   }
-
+  var clientHistory = JSON.parse(clientHistoryString);
+  var historyDiv, oldImage;
+  for(var i = 0; i<clientHistory.length; i++){
+    var imageUrl = clientHistory[i];
+    oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
+    historyDiv = document.getElementById('history-content');
+    oldImage = historyDiv.innerHTML + oldImage;
+  }
+  historyDiv.innerHTML = oldImage;
   // Check whether user is logged into instagram
 
   var newAccessKey = window.location.hash.slice(1);
@@ -43,7 +51,6 @@ var instaground = (function() {
     clientHistory.push(randomImageUrl);
     console.log ('history-var', clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
-    var historyDiv, oldImage;
     document.cookie = clientHistoryString;
     for(var i = 0; i<clientHistory.length; i++){
       var imageUrl = clientHistory[i];
