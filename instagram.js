@@ -11,18 +11,36 @@ var instaground = (function() {
     };
   }
 
-  function updateHistory() {
-    var oldImage = "";
-    var newHtml = "";
-    var clientHistory = JSON.parse(clientHistoryString);
-    if(randomImageUrl){
-    clientHistory.push(randomImageUrl);
-  }
-    console.log(clientHistory);
-    clientHistoryString = JSON.stringify(clientHistory);
+  // function updateHistory(aHistory) {
+  //   var oldImage = "";
+  //   var newHtml = "";
+  //   var clientHistory = JSON.parse(clientHistoryString);
+  //   if(randomImageUrl){
+  //   clientHistory.push(randomImageUrl);
+  // }
+  //   clientHistoryString = JSON.stringify(clientHistory);
+  //   document.cookie = clientHistoryString;
+  //   for (var i = 0; i < clientHistory.length; i++) {
+  //     var imageUrl = clientHistory[i];
+  //     oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
+  //     newHtml = oldImage + newHtml;
+  //   }
+  //   document.getElementById('history-content').innerHTML = newHtml;
+  //   var historyImages = document.getElementsByClassName('history-image');
+  //   for (var j = 0; j < historyImages.length; j++) {
+  //     var thisImg = historyImages[j].firstChild;
+  //     thisImg.addEventListener('click', changeBackgroundTo(thisImg));
+  //   }
+  // }
+
+  function updateHistory(aHistory) {
+    var oldImage;
+    var newHtml;
+    if(randomImageUrl){aHistory.push(randomImageUrl);}
+    clientHistoryString = JSON.stringify(aHistory);
     document.cookie = clientHistoryString;
-    for (var i = 0; i < clientHistory.length; i++) {
-      var imageUrl = clientHistory[i];
+    for (var i = 0; i < aHistory.length; i++) {
+      var imageUrl = aHistory[i];
       oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
       newHtml = oldImage + newHtml;
     }
@@ -33,7 +51,6 @@ var instaground = (function() {
       thisImg.addEventListener('click', changeBackgroundTo(thisImg));
     }
   }
-
   // defining a client history string
   var clientHistoryString = "[]";
 
@@ -41,7 +58,7 @@ var instaground = (function() {
   if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
-    updateHistory();
+    updateHistory(clientHistory);
 
   }
 
@@ -75,7 +92,7 @@ var instaground = (function() {
     var randomImageNum = Math.floor(Math.random() * 20);
     var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    updateHistory();
+    updateHistory(clientHistory);
   }
 
   return {
