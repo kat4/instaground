@@ -21,7 +21,7 @@ var instaground = (function() {
   // Request images from instagram
   function jsonp(callback) {
     var searchTag = document.getElementById('search-field').value;
-
+    searchTag = searchTag.split(" ").join("");
     var url = 'https://api.instagram.com/v1/tags/' + searchTag + '/media/recent?' + newAccessKey;
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     window[callbackName] = function(data) {
