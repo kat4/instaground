@@ -6,6 +6,7 @@ var instaground = (function() {
 
   var clientHistoryString = "[]";
   if (document.cookie && document.cookie[0]=='"[') {
+    console.log('WHATWEWANNNNNNNNNNNNNNNT')
     clientHistoryString = document.cookie;
   }
   var clientHistory = JSON.parse(clientHistoryString);
