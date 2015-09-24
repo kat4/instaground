@@ -7,8 +7,9 @@ var instaground = (function() {
   var clientHistoryString = "";
   if (document.cookie) {
     clientHistoryString = document.cookie;
+    console.log(clientHistoryString);
   }
-
+  console.log(clientHistoryString);
 
   // Check whether user is logged into instagram
 
