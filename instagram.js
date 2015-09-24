@@ -11,27 +11,7 @@ var instaground = (function() {
     };
   }
 
-  // function updateHistory(aHistory) {
-  //   var oldImage = "";
-  //   var newHtml = "";
-  //   var clientHistory = JSON.parse(clientHistoryString);
-  //   if(randomImageUrl){
-  //   clientHistory.push(randomImageUrl);
-  // }
-  //   clientHistoryString = JSON.stringify(clientHistory);
-  //   document.cookie = clientHistoryString;
-  //   for (var i = 0; i < clientHistory.length; i++) {
-  //     var imageUrl = clientHistory[i];
-  //     oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
-  //     newHtml = oldImage + newHtml;
-  //   }
-  //   document.getElementById('history-content').innerHTML = newHtml;
-  //   var historyImages = document.getElementsByClassName('history-image');
-  //   for (var j = 0; j < historyImages.length; j++) {
-  //     var thisImg = historyImages[j].firstChild;
-  //     thisImg.addEventListener('click', changeBackgroundTo(thisImg));
-  //   }
-  // }
+  // function which updates the search history. It is called when the page first loads, and when images are returned from instagram
 
   function updateHistory(aHistory,ran) {
     var oldImage;
@@ -51,17 +31,18 @@ var instaground = (function() {
       thisImg.addEventListener('click', changeBackgroundTo(thisImg));
     }
   }
-  // defining a client history string
+  // defining a client history string, which is a stringified empty array
+
   var clientHistoryString = "[]";
 
   // if a cookie exists and takes the right form, then populate the history section
+
   if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
     updateHistory(clientHistory);
 
   }
-
 
   // Check whether user is logged into instagram
 
@@ -71,6 +52,7 @@ var instaground = (function() {
   }
 
   // Request images from instagram
+
   function jsonp(callback) {
     var searchTag = document.getElementById('search-field').value;
     searchTag = searchTag.split(" ").join("");
@@ -81,7 +63,7 @@ var instaground = (function() {
       document.body.removeChild(script);
       callback(data);
     };
-
+    // creating a script tag with the request to send to instagram
     var script = document.createElement('script');
     script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
     document.body.appendChild(script);
