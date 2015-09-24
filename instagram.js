@@ -7,9 +7,7 @@ var instaground = (function() {
   var clientHistoryString = "[]";
   if (document.cookie && document.cookie[0]=='"[') {
     clientHistoryString = document.cookie;
-    console.log(clientHistoryString);
   }
-  console.log(clientHistoryString);
 
   // Check whether user is logged into instagram
 
@@ -46,7 +44,11 @@ var instaground = (function() {
     console.log ('history-var', clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
-    console.log ('cookies', document.cookie);
+    for(var imageUrl in clientHistory){
+      oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
+      document.getElementById('history-content').appendChild(oldImage);
+    }
+
   }
 
   return {
