@@ -15,7 +15,9 @@ var instaground = (function() {
     var oldImage = "";
     var newHtml = "";
     var clientHistory = JSON.parse(clientHistoryString);
+    if(randomImageUrl){
     clientHistory.push(randomImageUrl);
+  }
     console.log(clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
