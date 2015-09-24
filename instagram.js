@@ -17,6 +17,14 @@ var instaground = (function() {
     oldImage = historyDiv.innerHTML + oldImage;
   }
   historyDiv.innerHTML = oldImage;
+  var historyImages = document.getElementsByClassName('history-image');
+  for(var j=0; j<historyImages.length; j++){
+    var thisImg = historyImages[j].firstChild;
+    thisImg.addEventListener('click', function(){
+      document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
+    });
+
+
   // Check whether user is logged into instagram
 
   var newAccessKey = window.location.hash.slice(1);
@@ -59,6 +67,14 @@ var instaground = (function() {
       oldImage = oldImage + historyDiv.innerHTML;
     }
     historyDiv.innerHTML = oldImage;
+    var historyImages = document.getElementsByClassName('history-image');
+    for(var j=0; j<historyImages.length; j++){
+      var thisImg = historyImages[j].firstChild;
+      thisImg.addEventListener('click', function(){
+        document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
+      });
+
+    }
   }
 
   return {
