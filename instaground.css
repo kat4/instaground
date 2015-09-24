@@ -27,6 +27,11 @@ body {
   border: 0;
   color: white;
   font-weight: bold;
+}
 
-
+.tab-content{
+  color:white;
+  font-family: arial, sans-serif;
+  width: 100%;
+  max-width: 540px;  
 }
