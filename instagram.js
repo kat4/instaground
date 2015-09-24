@@ -40,11 +40,6 @@ var iGround = (function() {
 
 });
 
-// Search on click
-var searchButton = document.getElementById('search-button');
-searchButton.addEventListener('onclick', function() {
-  iGround.jsonp(displayRandomImage);
-});
 // Search on enter key
 var searchField = document.getElementById('search-field');
 searchField.addEventListener('keydown', function(e) {
