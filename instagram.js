@@ -4,8 +4,8 @@
 var instaground = (function() {
   "use strict";
 
-  var clientHistoryString = "";
-  if (document.cookie) {
+  var clientHistoryString = "[]";
+  if (document.cookie && document.cookie[0]=='"[') {
     clientHistoryString = document.cookie;
     console.log(clientHistoryString);
   }
