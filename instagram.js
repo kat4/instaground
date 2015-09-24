@@ -38,7 +38,7 @@ var iGround = (function() {
     displayRandomImage: displayRandomImage
   };
 
-});
+}());
 
 // Search on enter key
 var searchField = document.getElementById('search-field');
