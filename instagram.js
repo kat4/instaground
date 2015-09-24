@@ -5,6 +5,7 @@ var instaground = (function() {
   "use strict";
 
   var clientHistoryString = "[]";
+  console.log(document.cookie.substr(0,2));
   if (document.cookie && document.cookie.substr(0,2)=='"[') {
     console.log('WHATWEWANNNNNNNNNNNNNNNT');
     clientHistoryString = document.cookie;
