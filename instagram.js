@@ -43,15 +43,15 @@ var instaground = (function() {
     clientHistory.push(randomImageUrl);
     console.log ('history-var', clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
+    var historyDiv, oldImage;
     document.cookie = clientHistoryString;
     for(var i = 0; i<clientHistory.length; i++){
       var imageUrl = clientHistory[i];
-      var oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
-      var historyDiv = document.getElementById('history-content');
-      oldImage = oldImage + historyDiv.innerHTML;
-      historyDiv.innerHTML = oldImage;
+      oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
+      historyDiv = document.getElementById('history-content');
+      oldImage = historyDiv.innerHTML + oldImage;
     }
-
+    historyDiv.innerHTML = oldImage;
   }
 
   return {
