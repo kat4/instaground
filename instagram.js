@@ -9,11 +9,11 @@ var instaground = (function() {
   if (document.cookie.substr(0,2)==='["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
-    console.log(clientHistory);
     var historyDiv;
     var oldImage="";
     for(var i = 0; i<clientHistory.length; i++){
       var imageUrl = clientHistory[i];
+      console.log(imageUrl);
       oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
       historyDiv = document.getElementById('history-content');
       oldImage = historyDiv.innerHTML + oldImage;
