@@ -37,7 +37,7 @@ function jsonp(callback) {
 function displayRandomImage(response) {
   var randomImageNum = Math.floor(Math.random() * 20);
   var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
-  document.getElementById('background-container').style.backgroundImage = url(' + randomImageUrl + ');
+  document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
 }
 
 var searchButton = document.getElementById('search-button');
