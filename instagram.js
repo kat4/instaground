@@ -12,6 +12,8 @@ var instaground = (function() {
   }
 
   function updateHistory() {
+    var oldImage = "";
+    var newHtml = "";
     for (var i = 0; i < clientHistory.length; i++) {
       var imageUrl = clientHistory[i];
       oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
@@ -32,8 +34,6 @@ var instaground = (function() {
   if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
-    var oldImage = "";
-    var newHtml = "";
     updateHistory();
 
   }
