@@ -4,8 +4,18 @@
 var instaground = (function() {
   "use strict";
 
+
+  // function which changes URL of background image to URL passed as argument to the function
+  function changeBackgroundTo(anImage){
+    return function(){
+      document.getElementById('background-container').style.backgroundImage = 'url("' + anImage.src + '")';
+    };
+  }
+
+  // defining a client history string
   var clientHistoryString = "[]";
-  console.log(document.cookie.substr(0,2));
+
+  // if a cookie exists and takes the right form, then populate the history section
   if (document.cookie.substr(0,2)==='["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
@@ -77,11 +87,7 @@ var instaground = (function() {
 
     }
   }
-  function changeBackgroundTo(anImage){
-    return function(){
-      document.getElementById('background-container').style.backgroundImage = 'url("' + anImage.src + '")';
-    };
-  }
+
   return {
     jsonp: jsonp,
     displayRandomImage: displayRandomImage
