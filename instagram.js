@@ -14,6 +14,11 @@ var instaground = (function() {
   function updateHistory() {
     var oldImage = "";
     var newHtml = "";
+    var clientHistory = JSON.parse(clientHistoryString);
+    clientHistory.push(randomImageUrl);
+    console.log(clientHistory);
+    clientHistoryString = JSON.stringify(clientHistory);
+    document.cookie = clientHistoryString;
     for (var i = 0; i < clientHistory.length; i++) {
       var imageUrl = clientHistory[i];
       oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
@@ -68,11 +73,6 @@ var instaground = (function() {
     var randomImageNum = Math.floor(Math.random() * 20);
     var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    var clientHistory = JSON.parse(clientHistoryString);
-    clientHistory.push(randomImageUrl);
-    console.log(clientHistory);
-    clientHistoryString = JSON.stringify(clientHistory);
-    document.cookie = clientHistoryString;
     updateHistory();
   }
 
