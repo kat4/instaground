@@ -80,7 +80,7 @@ var instaground = (function() {
   }
   function changeBackgroundTo(anImage){
     return function(){
-      document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
+      document.getElementById('background-container').style.backgroundImage = 'url("' + anImage.src + '")';
     };
   }
   return {
