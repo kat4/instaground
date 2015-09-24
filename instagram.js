@@ -26,8 +26,7 @@ var instaground = (function() {
       oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
       newHtml = oldImage + newHtml;
     }
-    historyDiv = document.getElementById('history-content');
-    historyDiv.innerHTML = newHtml;
+    document.getElementById('history-content').innerHTML = newHtml;
     var historyImages = document.getElementsByClassName('history-image');
     for(var j=0; j<historyImages.length; j++){
       var thisImg = historyImages[j].firstChild;
@@ -74,7 +73,7 @@ var instaground = (function() {
       oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
       newHtml = oldImage + newHtml;
     }
-    historyDiv.innerHTML = newHtml;
+    document.getElementById('history-content').innerHTML = newHtml;
     var historyImages = document.getElementsByClassName('history-image');
     for(var j=0; j<historyImages.length; j++){
       var thisImg = historyImages[j].firstChild;
