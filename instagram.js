@@ -53,7 +53,6 @@ var instaground = (function() {
       delete window[callbackName];
       document.body.removeChild(script);
       callback(data);
-      console.log(data);
     };
 
     var script = document.createElement('script');
@@ -68,21 +67,18 @@ var instaground = (function() {
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
     var clientHistory = JSON.parse(clientHistoryString);
     clientHistory.push(randomImageUrl);
-    console.log ('history-var', clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
     for(var i = 0; i<clientHistory.length; i++){
       var imageUrl = clientHistory[i];
       oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
-      historyDiv = document.getElementById('history-content');
-      oldImage = oldImage + historyDiv.innerHTML;
+      newHtml = oldImage + newHtml;
     }
-    historyDiv.innerHTML = oldImage;
+    historyDiv.innerHTML = newHtml;
     var historyImages = document.getElementsByClassName('history-image');
     for(var j=0; j<historyImages.length; j++){
       var thisImg = historyImages[j].firstChild;
       thisImg.addEventListener('click', changeBackgroundTo(thisImg));
-
     }
   }
 
