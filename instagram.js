@@ -1,4 +1,7 @@
 var newAccessKey = window.location.hash.slice(1);
+if (newAccessKey.slice(0,13) !== "access_token="){
+window.location = "https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token";
+}
 //
 // var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
 //     function httpGetAsync(theUrl, callback) {
@@ -34,7 +37,7 @@ function jsonp(callback) {
 function displayRandomImage(response) {
   var randomImageNum = Math.floor(Math.random() * 20);
   var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
-  document.getElementById('main-ground-container').innerHTML = '<div style="width:640px;height:640px;background-image:url(' + randomImageUrl + '); background-size:cover; background-position:center;"></div>';
+  document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
 }
 
 var searchButton = document.getElementById('search-button');
