@@ -70,6 +70,7 @@ var instaground = (function() {
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
     var clientHistory = JSON.parse(clientHistoryString);
     clientHistory.push(randomImageUrl);
+    console.log(clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
     updateHistory();
