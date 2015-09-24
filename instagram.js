@@ -33,10 +33,10 @@ var instaground = (function() {
   //   }
   // }
 
-  function updateHistory(aHistory) {
+  function updateHistory(aHistory,ran) {
     var oldImage;
     var newHtml;
-    if(randomImageUrl){aHistory.push(randomImageUrl);}
+    if(ran){aHistory.push(ran);}
     clientHistoryString = JSON.stringify(aHistory);
     document.cookie = clientHistoryString;
     for (var i = 0; i < aHistory.length; i++) {
@@ -92,7 +92,7 @@ var instaground = (function() {
     var randomImageNum = Math.floor(Math.random() * 20);
     var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    updateHistory(clientHistory);
+    updateHistory(clientHistory,randomImageUrl);
   }
 
   return {
