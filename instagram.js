@@ -44,7 +44,8 @@ var instaground = (function() {
     console.log ('history-var', clientHistory);
     clientHistoryString = JSON.stringify(clientHistory);
     document.cookie = clientHistoryString;
-    for(var imageUrl in clientHistory){
+    for(var i = 0; i<clientHistory.length; i++){
+      var imageUrl = clientHistory[i];
       var oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
       document.getElementById('history-content').appendChild(oldImage);
     }
