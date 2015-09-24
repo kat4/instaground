@@ -24,6 +24,8 @@ var instaground = (function() {
       document.getElementById('background-container').style.backgroundImage = 'url("' + thisImg.src + '")';
     });
 
+  }
+
 
   // Check whether user is logged into instagram
 
