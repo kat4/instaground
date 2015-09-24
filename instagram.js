@@ -1,15 +1,5 @@
-
-// instaground encapsulation app
-
-var instaground = (function() {
+var iGround = (function() {
   "use strict";
-
-  var clientHistoryString = "[]";
-  if (document.cookie && document.cookie[0]=='"[') {
-    clientHistoryString = document.cookie;
-    console.log(clientHistoryString);
-  }
-  console.log(clientHistoryString);
 
   // Check whether user is logged into instagram
 
@@ -18,10 +8,11 @@ var instaground = (function() {
     window.location = "https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token";
   }
 
+
   // Request images from instagram
   function jsonp(callback) {
     var searchTag = document.getElementById('search-field').value;
-
+    searchTag = searchTag.split(" ").join("");
     var url = 'https://api.instagram.com/v1/tags/' + searchTag + '/media/recent?' + newAccessKey;
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
     window[callbackName] = function(data) {
@@ -41,12 +32,6 @@ var instaground = (function() {
     var randomImageNum = Math.floor(Math.random() * 20);
     var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    var clientHistory = JSON.parse(clientHistoryString);
-    clientHistory.push(randomImageUrl);
-    console.log ('history-var', clientHistory);
-    clientHistoryString = JSON.stringify(clientHistory);
-    document.cookie = clientHistoryString;
-    console.log ('cookies', document.cookie);
   }
 
   return {
@@ -60,6 +45,6 @@ var instaground = (function() {
 var searchField = document.getElementById('search-field');
 searchField.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
-    instaground.jsonp(instaground.displayRandomImage);
+    iGround.jsonp(iGround.displayRandomImage);
   }
 });
