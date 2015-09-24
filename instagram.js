@@ -30,7 +30,9 @@ function jsonp(callback) {
   document.body.appendChild(script);
 }
 
-
-jsonp(function() {
-  console.log('Success')
-})
+function displayRandomImage(response) {
+  var randomImageNum = Math.floor(Math.random() * 20);
+  var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
+  document.getElementById('main-ground-container').innerHTML = '<div style="width:100%;height:100%;background-image:url(' + randomImageUrl + '); background-size:cover; background-position:center;"></div>';
+}
+jsonp(displayRandomImage);
