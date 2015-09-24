@@ -44,6 +44,6 @@ var iGround = (function() {
 var searchField = document.getElementById('search-field');
 searchField.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
-    iGround.jsonp(displayRandomImage);
+    iGround.jsonp(iGround.displayRandomImage);
   }
 });
