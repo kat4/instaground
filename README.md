@@ -10,9 +10,9 @@ This will primarily be a mobile app, which will also look good and function on l
 
 ##Strategy
 
-- [ ] Learn to use the instagram API to return an image from a hashtag based on a static word.
+- [x] Learn to use the instagram API to return an image from a hashtag based on a static word.
 
-- [ ] Conceal API key.
+- [x] Conceal API key.
 
 - [ ] Implement a search box with a submit button which loads a new image based on the search term.
 

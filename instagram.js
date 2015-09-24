@@ -15,8 +15,8 @@ var newAccessKey = window.location.hash.slice(1);
 
 
 function jsonp(callback) {
-  //var searchterm = document.getElementById('searchTermInput').value.toString() || document.getElementById('searchTermInput').placeholder;
-  var url = 'https://api.instagram.com/v1/tags/' + 'autumn' + '/media/recent?' + newAccessKey;
+  var searchTag = document.getElementById('search-field').value;
+  var url = 'https://api.instagram.com/v1/tags/' + searchTag + '/media/recent?' + newAccessKey;
   var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
   window[callbackName] = function(data) {
     delete window[callbackName];
