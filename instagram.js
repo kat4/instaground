@@ -7,9 +7,9 @@ var instaground = (function() {
   var clientHistoryString = "[]";
   console.log(document.cookie.substr(0,2));
   if (document.cookie.substr(0,2)==='["') {
-    console.log('WHATWEWANNNNNNNNNNNNNNNT');
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
+    console.log(clientHistory);
     var historyDiv;
     var oldImage="";
     for(var i = 0; i<clientHistory.length; i++){
