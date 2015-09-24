@@ -1,4 +1,7 @@
 var newAccessKey = window.location.hash.slice(1);
+if (newAccessKey.slice(0,13) !== "access_token="){
+window.location = "https://instagram.com/oauth/authorize/?client_id=d80c733cf6c9474e8df5daffc9a9a2b7&redirect_uri=http://kat4.github.io/instaground&response_type=token";
+}
 //
 // var newURL = "https://api.instagram.com/v1/media/popular?" + newAccessKey;
 //     function httpGetAsync(theUrl, callback) {
