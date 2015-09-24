@@ -7,18 +7,55 @@
   <link rel="icon" type="image/png" href="http://www.favicon.cc/logo3d/422699.png" />
   <link rel="stylesheet" type="text/css" href="instaground.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
+
 </head>
 
 <body>
 
   <div id='background-container'>
-  <input type="text" id="search-field" placeholder="Search here.">
+  <input class="tab" type="text" id="search-field" placeholder="Search here.">
+  <button class="tab" > history </button>
+
+  <div class="tabcontents">
+    <div class="tab-content" style="display: block;">
+
+
+    </div>
+
+    <div class="tab-content" style="display: none;">
+      <h2>History</h2>
+    </div>
+
+  </div>
 </div>
 
   <script src="instagram.js"></script>
   <script src="tests.js"></script>
+<script>
+  function makeClickHandlers() {
 
+    var elems_array = document.getElementsByClassName("tab"),
+      i;
+    var tab_content = document.getElementsByClassName("tab-content"),
+      j;
+
+    for (i = 0; i < elems_array.length; i++) {
+      elems_array[i].addEventListener("click", changeContentTab(i));
+    }
+
+    function changeContentTab(i) {
+      return function() {
+        for (j = 0; j < tab_content.length; j++)
+          if (i != j) {
+            document.getElementsByClassName("tab-content")[j].style.display = "none";
+          } else {
+            document.getElementsByClassName("tab-content")[j].style.display = "block";
+          }
+      };
+    }
+  };
+  makeClickHandlers();
+</script>
 
 </body>
 
