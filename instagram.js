@@ -48,7 +48,7 @@ var instaground = (function() {
       var imageUrl = clientHistory[i];
       var oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
       var historyDiv = document.getElementById('history-content');
-      historyDiv.appendChild(oldImage);
+      historyDiv.innerHTML = oldImage;
     }
 
   }
