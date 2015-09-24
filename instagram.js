@@ -19,21 +19,19 @@ var instaground = (function() {
   if (document.cookie.substr(0,2)==='["') {
     clientHistoryString = document.cookie;
     var clientHistory = JSON.parse(clientHistoryString);
-    var historyDiv;
     var oldImage="";
     var newHtml="";
     for(var i = 0; i<clientHistory.length; i++){
       var imageUrl = clientHistory[i];
-      console.log(imageUrl);
       oldImage = '<div class="history-image"><img src="'+imageUrl+'" /></div>';
-      historyDiv = document.getElementById('history-content');
-      newHtml = newHtml + oldImage;
+      newHtml = oldImage + newHtml;
     }
+    historyDiv = document.getElementById('history-content');
     historyDiv.innerHTML = newHtml;
     var historyImages = document.getElementsByClassName('history-image');
     for(var j=0; j<historyImages.length; j++){
       var thisImg = historyImages[j].firstChild;
-      thisImg.addEventListener('click', changeImageTo(thisImg));
+      thisImg.addEventListener('click', changeBackgroundTo(thisImg));
       }
   }
 
