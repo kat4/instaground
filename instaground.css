@@ -42,7 +42,7 @@ img{
 background-color: rgba(50,50,50,0.7);
 }
 .error-message {
-  background: rgba(50, 50, 50, 0.4);
+  background: rgba(50, 50, 50, 0.5);
   height: 30%;
   width: 30%;
   color: white;
