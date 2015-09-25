@@ -8,6 +8,7 @@ var instaground = (function() {
   // function which changes URL of background image to URL passed as argument to the function
   function changeBackgroundTo(anImage) {
     return function() {
+      document.getElementById('download').href = anImage.src;
       document.getElementById('background-container').style.backgroundImage = 'url("' + anImage.src + '")';
     };
   }
