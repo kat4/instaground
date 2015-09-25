@@ -41,3 +41,15 @@ img{
   padding: 2em;
 background-color: rgba(50,50,50,0.7);
 }
+.error-message {
+  background: rgba(50, 50, 50, 0.4);
+  height: 30%;
+  width: 30%;
+  color: white;
+  border: black solid 0.2em;
+  padding: 1em;
+  text-align: center;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+  margin: 25% auto;
+}

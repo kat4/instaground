@@ -1,7 +1,7 @@
 // instaground encapsulation app
 
 var instaground = (function() {
-// use a subset of normal javascript which is has stricter rules
+  // use a subset of normal javascript which is has stricter rules
   "use strict";
 
 
@@ -53,7 +53,7 @@ var instaground = (function() {
   if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
   }
-  
+
   var clientHistory = JSON.parse(clientHistoryString);
   updateHistory(clientHistory);
 
@@ -68,16 +68,22 @@ var instaground = (function() {
   // Request images from instagram
 
   function jsonp(callback) {
+    //get the search term from user
     var searchTag = document.getElementById('search-field').value;
+    //handle cases with two words by joining them together
     searchTag = searchTag.split(" ").join("");
+    //build the api request url using the search term and accesskey
     var url = 'https://api.instagram.com/v1/tags/' + searchTag + '/media/recent?' + newAccessKey;
+    //create a unique callback id for each http request so we delete the correct script tag later
     var callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+    //delete script tags created by jsonp request so as to not clutter the html
     window[callbackName] = function(data) {
       delete window[callbackName];
       document.body.removeChild(script);
+      //and calls the callback function displayRandomImage (which displays a random image on the page as a background) on the response(data) given back which is a JSON object
       callback(data);
     };
-    // creating a script tag with the request to send to instagram
+    // creating a script tag with the request to send to instagram which executes (how does this happen?)
     var script = document.createElement('script');
     script.src = url + (url.indexOf('?') >= 0 ? '&' : '?') + 'callback=' + callbackName;
     document.body.appendChild(script);
@@ -86,24 +92,30 @@ var instaground = (function() {
   // Callback function
   function displayRandomImage(response) {
     var randomImageNum = Math.floor(Math.random() * 20);
-    var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
-    document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    updateHistory(clientHistory, randomImageUrl);
+    if (typeof response.data[randomImageNum] === "undefined") {
+
+      (changeContentTab(2))();
+    } else {
+      var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
+      document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
+      updateHistory(clientHistory, randomImageUrl);
+    }
   }
-
+  //adding click handlers to the tabs and toggling between the tabbed content
   function makeClickHandlers() {
-
+    //declaring the arrays and variables to loop through them
     var elems_array = document.getElementsByClassName("tab"),
       i;
-    var tab_content = document.getElementsByClassName("tab-content"),
-      j;
 
+    //if you click on a tab then.. (see line 110 onwards)
     for (i = 0; i < elems_array.length; i++) {
       elems_array[i].addEventListener("click", changeContentTab(i));
     }
-
+    //if you click on a tab then.. if that clicked tab has the same index as the tabbed content then display that one and loop through and hide the others.
     function changeContentTab(i) {
       return function() {
+        var tab_content = document.getElementsByClassName("tab-content"),
+          j;
         for (j = 0; j < tab_content.length; j++)
           if (i != j) {
             document.getElementsByClassName("tab-content")[j].style.display = "none";
