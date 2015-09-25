@@ -1,9 +1,10 @@
 #Instaground documentation
 
 ##Dependancies
-An internet connection.
-An instagram account.
-Here is the link to our web-app, Instaground: http://kat4.github.io/instaground   
+
+* An internet connection.
+* An instagram account.
+* Here is the link to our web-app, Instaground: http://kat4.github.io/instaground   
 
 ##Concept
 
