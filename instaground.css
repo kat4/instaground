@@ -23,12 +23,15 @@ img{
   background-repeat: no-repeat;
   background-position: center;
 }
-.tab, #clear-history {
+.tab, #clear-history, #download {
   background: rgba(50, 50, 50, 0.4);
   padding: 8px 15px;
   border: 0;
   color: white;
   font-weight: bold;
+}
+#download{
+  float: right;
 }
 .tab-content {
   color: white;

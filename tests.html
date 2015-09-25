@@ -1,34 +1,48 @@
-<div id="qunit"></div>
-<div id="qunit-fixture"></div>
-<script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-1.18.0.css">
+  <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+  <script src="instagram.js" ></script>
+</head>
+<body>
 
-<script>
-  test("is the variable a random number between 1-19", function() {
-    var randomImageNum = Math.floor(Math.random() * 20);
-    var isResultBetween = 1 < randomImageNum == randomImageNum < 19
-    var result = true;
-    equal(result, isResultBetween, true);
-  });
-
-  test("Checking that an integer is returned between 0 and 19", function(assert) {
-    //define anything extra needed in test
-    var randomImageNum = Math.floor(Math.random() * 20);
-    function checkInt019(){
-      return randomImageNum > -1 && randomImageNum < 20 && Number(randomImageNum) === randomImageNum && randomImageNum % 1 === 0;
-    }
-    assert.equal(checkInt019(), true, "Great! We love kat4");
-  });
-
-  test("Checking that tabs work", function(assert) {
-    //define anything extra needed in test
-    var done = assert.async();
-    var input = $("#test-input").focus();
-    var secondTabButton = document.getElementsByClassName('tab')[1];
-    var secondTabContent = document.getElementsByClassName('tab-content')[1];
-    secondTabButton.addEventListener('click', function() {
-      assert.equal(document.getElementsByClassName('active-tab')[0], secondTabContent, "Second tab successfully navigated to");
-      done();
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script>
+    test("is the variable a random number between 1-19", function() {
+      var randomImageNum = Math.floor(Math.random() * 20);
+      var isResultBetween = 1 < randomImageNum == randomImageNum < 19
+      var result = true;
+      equal(result, isResultBetween, true);
     });
-  });
 
-</script>
+    test("Checking that an integer is returned between 0 and 19", function(assert) {
+      //define anything extra needed in test
+      var randomImageNum = Math.floor(Math.random() * 20);
+      function checkInt019(){
+        return randomImageNum > -1 && randomImageNum < 20 && Number(randomImageNum) === randomImageNum && randomImageNum % 1 === 0;
+      }
+      assert.equal(checkInt019(), true, "Great! We love kat4");
+    });
+
+    // test("Checking that tabs work", function(assert) {
+    //   //define anything extra needed in test
+    //   var done = assert.async();
+    //   var secondTabButton = document.getElementsByClassName('tab')[1];
+    //   var secondTabContent = document.getElementsByClassName('tab-content')[1];
+    //   secondTabButton.addEventListener('click', function() {
+    //     assert.equal(secondTabContent.style.display, 'block', "Second tab successfully navigated to");
+    //     done();
+    //   });
+    // });
+
+  </script>
+
+
+
+
+</body>
+</html>

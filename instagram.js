@@ -51,7 +51,7 @@ var instaground = (function() {
   function clearHistory() {
     clientHistory = [];
     updateHistory(clientHistory);
-  };
+  }
 
   // if a cookie exists and takes the right form, then populate the history section
 
@@ -102,6 +102,7 @@ var instaground = (function() {
       (changeContentTab(2))();
     } else {
       var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
+      document.getElementById('download').src = 'url("' + randomImageUrl + '")';
       document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
       updateHistory(clientHistory, randomImageUrl);
     }
