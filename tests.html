@@ -9,4 +9,26 @@
     var result = true;
     equal(result, isResultBetween, true);
   });
+
+  test("Checking that an integer is returned between 0 and 19", function(assert) {
+    //define anything extra needed in test
+    var randomImageNum = Math.floor(Math.random() * 20);
+    function checkInt019(){
+      return randomImageNum > -1 && randomImageNum < 20 && Number(randomImageNum) === randomImageNum && randomImageNum % 1 === 0;
+    }
+    assert.equal(checkInt019(), true, "Great! We love kat4");
+  });
+
+  test("Checking that tabs work", function(assert) {
+    //define anything extra needed in test
+    var done = assert.async();
+    var input = $("#test-input").focus();
+    var secondTabButton = document.getElementsByClassName('tab')[1];
+    var secondTabContent = document.getElementsByClassName('tab-content')[1];
+    secondTabButton.addEventListener('click', function() {
+      assert.equal(document.getElementsByClassName('active-tab')[0], secondTabContent, "Second tab successfully navigated to");
+      done();
+    });
+  });
+
 </script>
