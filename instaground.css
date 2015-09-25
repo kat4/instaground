@@ -30,7 +30,7 @@ img{
   color: white;
   font-weight: bold;
 }
-.tab-content {
+.tab-content, #clear-history {
   color: white;
   font-family: arial, sans-serif;
   width: 100%;
