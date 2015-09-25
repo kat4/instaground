@@ -111,19 +111,19 @@ var instaground = (function() {
     for (i = 0; i < elems_array.length; i++) {
       elems_array[i].addEventListener("click", changeContentTab(i));
     }
-    //if you click on a tab then.. if that clicked tab has the same index as the tabbed content then display that one and loop through and hide the others.
-    function changeContentTab(i) {
-      return function() {
-        var tab_content = document.getElementsByClassName("tab-content"),
-          j;
-        for (j = 0; j < tab_content.length; j++)
-          if (i != j) {
-            document.getElementsByClassName("tab-content")[j].style.display = "none";
-          } else {
-            document.getElementsByClassName("tab-content")[j].style.display = "block";
-          }
-      };
-    }
+  }
+  //if you click on a tab then.. if that clicked tab has the same index as the tabbed content then display that one and loop through and hide the others.
+  function changeContentTab(i) {
+    return function() {
+      var tab_content = document.getElementsByClassName("tab-content"),
+        j;
+      for (j = 0; j < tab_content.length; j++)
+        if (i != j) {
+          document.getElementsByClassName("tab-content")[j].style.display = "none";
+        } else {
+          document.getElementsByClassName("tab-content")[j].style.display = "block";
+        }
+    };
   }
 
   return {
