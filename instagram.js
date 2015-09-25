@@ -137,7 +137,8 @@ var instaground = (function() {
     jsonp: jsonp,
     displayRandomImage: displayRandomImage,
     makeClickHandlers: makeClickHandlers,
-    clearHistory: clearHistory
+    clearHistory: clearHistory,
+    changeContentTab: changeContentTab
   };
 
 }());
@@ -148,7 +149,6 @@ searchField.addEventListener('keydown', function(e) {
   if (e.keyCode === 13) {
     instaground.changeContentTab(0);
     instaground.jsonp(instaground.displayRandomImage);
-
   }
 });
 
