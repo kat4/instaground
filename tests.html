@@ -1,3 +1,12 @@
 <div id="qunit"></div>
 <div id="qunit-fixture"></div>
 <script src="https://code.jquery.com/qunit/qunit-1.18.0.js"></script>
+
+<script>
+  test("is the variable a random number between 1-19", function() {
+    var randomImageNum = Math.floor(Math.random() * 20);
+    var isResultBetween = 1 < randomImageNum == randomImageNum < 19
+    var result = true;
+    equal(result, isResultBetween, true);
+  });
+</script>
