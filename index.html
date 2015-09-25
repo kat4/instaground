@@ -24,31 +24,7 @@
 
   <script src="instagram.js"></script>
   <script src="tests.js"></script>
-<script>
-  function makeClickHandlers() {
 
-    var elems_array = document.getElementsByClassName("tab"),
-      i;
-    var tab_content = document.getElementsByClassName("tab-content"),
-      j;
-
-    for (i = 0; i < elems_array.length; i++) {
-      elems_array[i].addEventListener("click", changeContentTab(i));
-    }
-
-    function changeContentTab(i) {
-      return function() {
-        for (j = 0; j < tab_content.length; j++)
-          if (i != j) {
-            document.getElementsByClassName("tab-content")[j].style.display = "none";
-          } else {
-            document.getElementsByClassName("tab-content")[j].style.display = "block";
-          }
-      };
-    }
-  };
-  makeClickHandlers();
-</script>
 
 </body>
 
