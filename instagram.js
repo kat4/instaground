@@ -77,9 +77,33 @@ var instaground = (function() {
     updateHistory(clientHistory,randomImageUrl);
   }
 
+  function makeClickHandlers() {
+
+    var elems_array = document.getElementsByClassName("tab"),
+      i;
+    var tab_content = document.getElementsByClassName("tab-content"),
+      j;
+
+    for (i = 0; i < elems_array.length; i++) {
+      elems_array[i].addEventListener("click", changeContentTab(i));
+    }
+
+    function changeContentTab(i) {
+      return function() {
+        for (j = 0; j < tab_content.length; j++)
+          if (i != j) {
+            document.getElementsByClassName("tab-content")[j].style.display = "none";
+          } else {
+            document.getElementsByClassName("tab-content")[j].style.display = "block";
+          }
+      };
+    }
+  }
+
   return {
     jsonp: jsonp,
-    displayRandomImage: displayRandomImage
+    displayRandomImage: displayRandomImage,
+    makeClickHandlers: makeClickHandlers
   };
 
 }());
@@ -91,3 +115,5 @@ searchField.addEventListener('keydown', function(e) {
     instaground.jsonp(instaground.displayRandomImage);
   }
 });
+
+instaground.makeClickHandlers();
