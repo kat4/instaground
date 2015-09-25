@@ -1,6 +1,7 @@
 // instaground encapsulation app
 
 var instaground = (function() {
+// use a subset of normal javascript which is has stricter rules
   "use strict";
 
 
@@ -13,24 +14,36 @@ var instaground = (function() {
 
   // function which updates the search history. It is called when the page first loads, and when images are returned from instagram
 
-  function updateHistory(aHistory,ran) {
-    var oldImage;
-    var newHtml;
-    if(ran){aHistory.push(ran);}
+  function updateHistory(aHistory, anImageUrl) {
+    var imageHtml;
+    var historyListHtml = "";
+    if (anImageUrl) {
+      aHistory.push(anImageUrl);
+    }
+    // stringify converts [ el1, el2 ,el3]  to  '[ el1, el2 ,el3]' (a JSON)
     clientHistoryString = JSON.stringify(aHistory);
+    // document.cookie writes the string to the cookie
     document.cookie = clientHistoryString;
+    // loop through history
     for (var i = 0; i < aHistory.length; i++) {
       var imageUrl = aHistory[i];
-      oldImage = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
-      newHtml = oldImage + newHtml;
+      imageHtml = '<div class="history-image"><img src="' + imageUrl + '" /></div>';
+      // concatenates latest image html with growing list of historyListHtml
+      historyListHtml = imageHtml + historyListHtml;
     }
-    document.getElementById('history-content').innerHTML = newHtml;
+    // insert history list to history-content div
+    document.getElementById('history-content').innerHTML = historyListHtml;
+    // loop through the images currently on history page
     var historyImages = document.getElementsByClassName('history-image');
     for (var j = 0; j < historyImages.length; j++) {
+      // target first child of div, which is an img
       var thisImg = historyImages[j].firstChild;
+      // add a click listener , which changes background to that image
       thisImg.addEventListener('click', changeBackgroundTo(thisImg));
     }
   }
+
+
   // defining a client history string, which is a stringified empty array
 
   var clientHistoryString = "[]";
@@ -39,10 +52,11 @@ var instaground = (function() {
 
   if (document.cookie.substr(0, 2) === '["') {
     clientHistoryString = document.cookie;
-    var clientHistory = JSON.parse(clientHistoryString);
-    updateHistory(clientHistory);
-
   }
+  
+  var clientHistory = JSON.parse(clientHistoryString);
+  updateHistory(clientHistory);
+
 
   // Check whether user is logged into instagram
 
@@ -74,7 +88,7 @@ var instaground = (function() {
     var randomImageNum = Math.floor(Math.random() * 20);
     var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
     document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
-    updateHistory(clientHistory,randomImageUrl);
+    updateHistory(clientHistory, randomImageUrl);
   }
 
   function makeClickHandlers() {
