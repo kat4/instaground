@@ -9,6 +9,7 @@ body {
   background-color: black;
   margin: 0;
   padding: 0.2em;
+  font-family: arial, sans-serif;
 }
 img{
   max-width: 100%;
@@ -35,7 +36,6 @@ img{
 }
 .tab-content {
   color: white;
-  font-family: arial, sans-serif;
   width: 100%;
   max-width: 400px;
   margin: 0 auto;
