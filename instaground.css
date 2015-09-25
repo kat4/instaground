@@ -51,6 +51,7 @@ background-color: rgba(50,50,50,0.7);
   text-align: center;
   font-weight: bold;
   font-family: arial, sans-serif;
-  margin: 25% auto;
+  margin: 28vh auto;
+  min-width: 15em;
   display: none;
 }
