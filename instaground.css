@@ -33,6 +33,7 @@ img{
 }
 #download{
   float: right;
+  text-decoration: none;
 }
 .tab-content {
   color: white;
