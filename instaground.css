@@ -23,14 +23,14 @@ img{
   background-repeat: no-repeat;
   background-position: center;
 }
-.tab {
+.tab, #clear-history {
   background: rgba(50, 50, 50, 0.4);
   padding: 8px 15px;
   border: 0;
   color: white;
   font-weight: bold;
 }
-.tab-content, #clear-history {
+.tab-content {
   color: white;
   font-family: arial, sans-serif;
   width: 100%;

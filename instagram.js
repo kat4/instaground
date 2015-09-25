@@ -50,6 +50,7 @@ var instaground = (function() {
 
   function clearHistory() {
     clientHistory = [];
+    updateHistory(clientHistory);
   };
 
   // if a cookie exists and takes the right form, then populate the history section
