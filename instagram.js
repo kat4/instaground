@@ -102,7 +102,7 @@ var instaground = (function() {
       (changeContentTab(2))();
     } else {
       var randomImageUrl = response.data[randomImageNum].images.standard_resolution.url;
-      document.getElementById('download').href = 'url("' + randomImageUrl + '")';
+      document.getElementById('download').href = randomImageUrl;
       document.getElementById('background-container').style.backgroundImage = 'url("' + randomImageUrl + '")';
       updateHistory(clientHistory, randomImageUrl);
     }
