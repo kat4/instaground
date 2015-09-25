@@ -22,7 +22,7 @@ This will primarily be a mobile app, which will also look good and function on l
 
 - [x] Implement a search box with a submit button which loads a new image based on the search term.
 
-- [ ] Use cookies stores user's search history on second tab.
+- [x] Use cookies stores user's search history on second tab.
 
 - [x] Dynamic functionality to search bar.
 
