@@ -48,6 +48,10 @@ var instaground = (function() {
 
   var clientHistoryString = "[]";
 
+  function clearHistory() {
+    clientHistory = [];
+  };
+
   // if a cookie exists and takes the right form, then populate the history section
 
   if (document.cookie.substr(0, 2) === '["') {
@@ -129,7 +133,8 @@ var instaground = (function() {
   return {
     jsonp: jsonp,
     displayRandomImage: displayRandomImage,
-    makeClickHandlers: makeClickHandlers
+    makeClickHandlers: makeClickHandlers,
+    clearHistory: clearHistory
   };
 
 }());
@@ -141,5 +146,8 @@ searchField.addEventListener('keydown', function(e) {
     instaground.jsonp(instaground.displayRandomImage);
   }
 });
+
+var clearHistoryButton = document.getElementById('clear-history');
+clearHistoryButton.addEventListener("click", instaground.clearHistory);
 
 instaground.makeClickHandlers();
