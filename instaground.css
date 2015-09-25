@@ -30,6 +30,7 @@ img{
   border: 0;
   color: white;
   font-weight: bold;
+  font-size: 0.8em;
 }
 #download{
   float: right;
