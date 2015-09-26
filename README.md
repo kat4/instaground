@@ -26,4 +26,6 @@ This will primarily be a mobile app, which will also look good and function on l
 
 - [x] Dynamic functionality to search bar.
 
+- [x] Add download url functionality
+
 - [ ] Lazy load content.
