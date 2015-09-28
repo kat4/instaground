@@ -1,5 +1,8 @@
 #Instaground documentation
-
+  
+[![Code Climate](https://codeclimate.com/github/kat4/instaground/badges/gpa.svg)](https://codeclimate.com/github/kat4/instaground)
+[![Test Coverage](https://codeclimate.com/github/kat4/instaground/badges/coverage.svg)](https://codeclimate.com/github/kat4/instaground/coverage)
+  
 ##Dependancies
 
 * An internet connection.
