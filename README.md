@@ -8,6 +8,7 @@
 * An internet connection.
 * An instagram account.
 * Here is the link to our web-app, Instaground: http://kat4.github.io/instaground   
+* To get the most out of instaground, we recommend using a CSS3 capable browser.   
 
 ##Concept
 
